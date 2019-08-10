@@ -1,0 +1,28 @@
+.pagiantion-list{
+	text-align: center;
+}
+.page-item{
+	/*float: left;*/
+	display: inline-block;
+	width: 45px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #999;
+	cursor: pointer;
+	user-select: none;
+}
+.page-sum{
+	margin-left: 10px;
+	display: inline-block;
+	font-size: 14px;
+}
+.disabled{
+	color: #aaa;
+	border-color: #aaa;
+	cursor: auto;
+}
+.active{
+	border-color: #f21;
+	color: #f21;
+}

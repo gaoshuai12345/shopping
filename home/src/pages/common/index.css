@@ -1,0 +1,261 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+body{
+	background: #e9eafa;
+	font-size: 13px;
+}
+.clearfix:after{
+	clear:both;
+	content:'';
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+.text-ellipsis{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.container{
+	width: 1230px;
+	margin:0 auto;
+}
+.link{
+	text-decoration: none;
+	font-size: 13px;
+	color: #999;
+	cursor: pointer;
+}
+.link:hover{
+	color: #ff6700;
+}
+.link-text{
+	font-size: 13px;
+	color: #999;
+
+}
+.hide{
+	display: none;
+}
+.btn{
+	display: inline-block;
+	text-decoration: none;
+	background: rgba(255,0,0,0.8);
+	color: #fff;
+	text-align: center;
+}
+.btn:hover{
+	background: red;
+}
+.btn-submit{
+	padding: 5px;
+}
+.list .default{
+	cursor: pointer;
+}
+.list .price{
+	cursor: pointer;
+}
+
+/*表单样式共通开始*/
+
+.form-box{
+	width:300px;
+	margin:50px auto;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+.form .title{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.form .error{
+	display: none;
+	border:1px solid red;
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;
+	color: red;
+	font-size: 14px;
+}
+.form .form-item{
+	border: 1px solid #999;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+.form .form-label{
+	width:50px;
+	background-color: #e5e5e5;
+	display: inline-block;
+	text-align: center;
+	border-right: 1px solid #999;
+}
+.form .form-content{
+	font-size: 13px;
+	width: 235px;
+	outline: none;
+	border:none;
+	padding-left: 5px;
+}
+.form .btn-submit{
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: red;
+	display: block;
+	font-size: 18px;
+	border-radius:5px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.form-register{
+	margin-bottom: 20px;
+}
+.form .toRegister{
+	text-decoration: none;
+	float: right;
+	color:#6c6c6c;
+	font-size: 14px;
+}
+.form-register{
+	margin-bottom: 20px;
+}
+.form .toLogin{
+	text-decoration: none;
+	float: right;
+	color:#6c6c6c;
+	font-size: 14px;
+}
+.form .toRegister{
+	text-decoration: none;
+	float: right;
+	color:#6c6c6c;
+	font-size: 14px;
+}
+/*表单样式共通结束*/
+
+
+/*购物车和订单商品列表共通样式开始*/
+.product-title{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color:#666;
+}
+
+
+.product-info-text{
+	margin-left: 10px;
+	color: #666;
+}
+.product-info-link{
+	display: block;
+	text-decoration: none;
+}
+.product-item .product-info img{
+	width: 60px;
+	height: 60px;
+	vertical-align: middle;
+}
+
+.product-countMenu-text{
+	margin-left: 30px;
+}
+
+.product-item{
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color:#666;
+    margin:10px 0;
+    border: 1px solid #ddd;
+}
+.product-footer{
+	width: 100%;
+	height: 60px;
+	line-height:60px;
+	background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color:#666;
+}
+
+.total-price{
+	float:left;
+	margin-left: 600px;
+}
+.total-price-text{
+	float:left;
+}
+.money{
+	color: #f21;
+	font-size: 16px;
+}
+.toPay{
+	display: inline-block;
+	float:right;
+	width: 100px;
+	height: 60px;
+	padding: 0;
+	line-height: 60px;
+	font-size: 17px;
+	cursor: pointer;
+}
+.Pay{
+	display: inline-block;
+	float:right;
+	height: 60px;
+	line-height: 60px;
+	font-size: 17px;
+	cursor: pointer;
+}
+.error{
+	color: #f21;
+	font-size: 20px;
+	text-align: center;
+}
+
+
+
+/*购物车和订单商品列表共通样式结束*/
+/*
+	面包屑样式
+*/
+.crumb{
+	height: 40px;
+	line-height: 40px;
+	color:#888;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.crumb .link{
+	color:#888;
+	font-size: 15px;
+}
+.crumb .link:hover{
+	color: #ff6700;
+}
+
+/*
+	loading
+*/
+.loading{
+	width: 728px;
+	height: 504px;
+	margin: -50px auto;
+	background: url('../../images/loading.gif') no-repeat;
+}

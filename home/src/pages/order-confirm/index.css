@@ -1,0 +1,138 @@
+.panel{
+	padding: 10px;
+	background-color: #fff;
+}
+.panel .panel-header{
+	font-size: 18px;
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 10px;
+	color: #555;
+}
+.panel .panel-body{
+	padding: 10px;
+	overflow: hidden;/*清除浮动*/
+}
+.panel .shipping-item{
+	cursor: pointer;
+}
+.panel .shipping-item,.shipping-add{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 280px;
+	border:4px dashed #ccc;
+}
+.panel .shipping-item.active{
+	border-color: #f21;
+}
+.panel .shipping-title{
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+	border-bottom: 1px dashed #aaa;
+	margin-bottom: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.panel .shipping-detail{
+	height: 60px;
+	line-height: 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.panel .shipping-opreation{
+	text-align: right;
+	visibility: hidden;
+}
+.shipping-item:hover{
+	background-color: #fafafa;
+}
+.panel .shipping-item:hover .shipping-opreation{
+	visibility: visible;
+}
+.panel .shipping-add{
+	height:96px;
+	font-size: 30px;
+	color: #999;
+	text-align: center;
+	padding-top: 22px;
+	cursor: pointer;
+}
+.panel .product-info{
+	width: 70%;
+	float: left;
+}
+.panel .product-price{
+	width: 10%;
+	float: left;
+}
+.panel .product-count{
+	width: 10%;
+	float: left;
+}
+.panel .product-countMenu-text{
+	margin-left: 0px;
+}
+.panel .product-total-price{
+	width: 10%;
+	float: left;
+}
+.panel .product-footer .btn-submit{
+	padding: 0;
+	width: 100px;
+	margin-left: 10px;
+}
+
+.modal{
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background:rgba(0,0,0,0.3)
+}
+.modal .modal-container{
+	width: 450px;
+	height: 500px;
+	background: #fff;
+	margin:100px auto;
+	padding:10px;
+}
+.modal .modal-header{
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	border-bottom: 1px dashed #aaa;
+}
+.modal .modal-title{
+	float: left;
+}
+.modal .close-icon{
+	float: right;
+	cursor: pointer;
+	font-size: 20px;
+}
+.modal .modal-body .form-item.city-item{
+	border:none;
+}
+.modal .modal-body .form-item.city-item .form-label{
+	border:1px solid #999;
+}
+.modal .modal-body .form-item.city-item select{
+	width: 100px;
+	height: 30px;
+	margin-left: 10px;
+	outline: none;
+}
+.modal .errorMsg{
+	display: none;
+	border:1px solid red;
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;
+	color: red;
+	font-size: 14px;
+}

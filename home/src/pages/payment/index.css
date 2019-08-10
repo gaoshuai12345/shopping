@@ -1,0 +1,19 @@
+.payment .payment-box{
+	text-align: center;
+}
+.payment .title{
+	font-size: 16px;
+	margin-top: 20px;
+	height: 40ox;
+	line-height: 40px;
+	color:#666;
+}
+.payment .tip{
+	height: 40px;
+	line-height: 40px;
+	color:#f21;
+}
+.payment img{
+	    width: 231px;
+    height: 321px;
+}

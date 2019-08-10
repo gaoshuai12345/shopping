@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= htmlWebpackPlugin.options.title %> -KMALL电商平台
+		
+	</title>
+</head>
+<body>
+	<%= require('html-loader!./common/logo.html') %>
+	<div class="form">
+		<div class="container">
+			<div class="form-box">
+				<div class="title">
+					<h2>用户登录</h2>
+				</div>
+				<div class="error"> 
+					<i class="fa fa-minus-circle"></i>
+					<span class="error-msg">error</span>
+				</div>
+				<div class="form-item">
+					<label for="" class="form-label">
+						<i class="fa fa-user"></i>
+					</label>
+					<input type="text" class="form-content" name="username" placeholder="请输入用户名">
+				</div>
+				<div class="form-item">
+					<label for="" class="form-label">
+						<i class="fa fa-lock"></i>
+					</label>
+					<input type="password" class="form-content" name="password" placeholder="请输入密码">
+				</div>
+				<div class="form-item">
+					<label for=""  class="form-label">
+						<i class="fa fa-lock"></i>
+					</label>
+					<input type="password" class="form-content" name="repassword" placeholder="请再次输入密码">
+				</div>
+				<div class="form-item">
+					<label for=""  class="form-label">
+						<i class="fa fa-phone"></i>
+					</label>
+					<input type="text" class="form-content" name="phone" placeholder="请输入手机号">
+				</div>
+				<div class="form-item">
+					<label for=""  class="form-label">
+						<i class="fa fa-envelope"></i>
+					</label>
+					<input type="text" class="form-content" name="email" placeholder="请输入邮箱">
+				</div>
+				<div>
+					<a href="javascript:;" class="btn btn-submit" id="btn-submit">注册</a>
+				</div>
+				<div class="form-login">
+					<a href="./user-login.html" class="toLogin">已有账号去登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

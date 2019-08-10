@@ -1,0 +1,13 @@
+.img-box li{
+	width: 100px;
+	height: 100px;
+	list-style: none;
+	padding: 5px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-right: 10px;
+}
+.img-box li img{
+	width: 100%;
+	height: 100%;
+}

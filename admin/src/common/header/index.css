@@ -1,0 +1,16 @@
+.Header .logo{
+    width: 120px;
+    height: 31px;
+    margin: 16px 28px 16px 0;
+    float: left;
+    color: #fff;
+    font-size: 30px;
+    line-height: 31px;
+}
+.Header .logout{
+	float: right;
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #fff;
+}

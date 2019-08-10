@@ -1,0 +1,19 @@
+.result{
+	min-height: 300px;
+	background-color: #999;
+	padding-top: 100px;
+	text-align: center;
+}
+.btns .btn{
+	display: inline-block;
+	background-color: red;
+	font-size: 18px;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px;
+}
+.result .title{
+	font-size: 30px;
+	color: #fff;
+	margin-bottom: 10px;
+}

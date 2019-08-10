@@ -1,0 +1,157 @@
+.product-img{
+	width: 440px;
+	float: left;
+	margin-right: 20px;
+}
+.product-main-img{
+	width: 430px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.product-main-img img{
+	width: 100%;
+	height: 100%;
+}
+.product-small-img-list{
+
+}
+.product-samll-img-item{
+	float: left;
+	margin-right: 10px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.product-samll-img-item.active{
+	border: 1px solid #f21;
+}
+.product-samll-img-item:last-child{
+	margin-right: 0;
+}
+.product-samll-img-item img{
+	width:100px;
+}
+.product-info{
+	float: left;
+}
+.prouct-name{
+	font-size: 20px;
+	color: #000;
+	margin-bottom: 20px;
+	width: 600px;
+    height: 60px;
+    line-height: 30px;
+}
+.product-description{
+	color: #f21;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+.label{
+	color:#999;
+	font-size: 13px;
+	margin-right: 10px;
+}
+.product-price {
+	margin-bottom: 20px;
+}
+.product-price  .info{
+	color:#f21;
+}
+.product-price  .info span{
+	font-size: 25px;
+}
+.product-stock{
+	margin-bottom: 20px;
+}
+.product-number{
+	margin-bottom: 20px;
+	position: relative;
+}
+.product-number .label{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 20px;
+}
+.count-input{
+	float: left;
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+	outline: 0;
+	border: 0;
+}
+.count-btn{
+	font-size: 15px;
+	color: #000;
+	width: 30px;
+	height: 30px;
+	background-color: #ccc;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+.plus{
+	float: left;
+	display: inline-block;
+
+}
+.minus{
+	float: left;
+}
+
+.dowhat{
+	font-size: 16px;
+
+}
+.cart{
+	float: left;
+	width: 130px;
+	text-align: center;
+	height: 38px;
+	line-height: 38px;
+	background-color: #f21;
+	color: #fff;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.shopping{
+	float: left;
+	color:#E5511D; 
+    background: #FFE4D0;
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+    font-family: "Hiragino Sans GB","microsoft yahei",sans-serif;
+    font-size: 16px;
+    line-height: 38px;
+    border:  1px solid #F0CAB6;
+}
+.product-detail .tab{
+	margin-top: 40px;
+}
+.product-detail .tab-list{
+	height: 40px;
+	line-height: 40px;
+	background-color: #ddd;
+	border-bottom: 1px solid #f21;
+}
+.product-detail .tab-item{
+	float: left;
+	width: 80px;
+	padding: 0 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.product-detail .tab-item.active{
+	background-color: #f21;
+	color: #fff;
+}
+.product-detail .tab-panel{
+	padding: 10px;
+	min-height: 200px;
+}

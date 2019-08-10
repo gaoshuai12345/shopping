@@ -1,0 +1,30 @@
+.side{
+	width: 100px;
+	min-height: 600px;
+	background: #fff;
+	float: left;
+	margin-right: 20px;
+}
+.side-item{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 10px;
+}
+.side-item.active{
+	border-right: 2px solid #f21;
+	box-sizing: border-box;
+}
+.side-item.active a{
+	color: #f21;
+	
+}
+.content{
+	float: left;
+	width: 1070px;
+	min-height: 600px;
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 20px;
+}

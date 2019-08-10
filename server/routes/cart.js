@@ -1,0 +1,454 @@
+const Router=require('express').Router;
+const router=Router();
+const userModel=require('../models/user.js');
+const hmac=require('../util/hmac.js')
+const productModel=require('../models/product.js')
+
+//未登录也可以获取购物车信息
+router.get('/num',(req,res)=>{
+	if(req.userInfo._id){
+		userModel.findById(req.userInfo._id)
+		.then(user=>{
+			if(user){
+				if(user.cart){
+					let num=user.cart.cartList.length;
+					res.json({
+						code:0,
+						data:num
+					})
+				}else{
+					res.json({
+						code:0,
+						data:0
+					})
+				}
+			}
+			else{
+				res.json({
+					code:1,
+					errMessage:'未找到相关用户信息'
+				})
+			}
+		})
+	}else{
+		res.json({
+			code:0,
+			data:0
+		})
+	}
+	
+})
+
+//权限控制
+router.use((req,res,next)=>{
+	if(req.userInfo._id){
+		next()
+	}
+	else{
+		res.send({
+			code:10
+		})
+	}
+})
+router.post('/',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				let item=user.cart.cartList.find(item=>{
+					return item.productId==body.productId
+				})
+				if(item){
+					item.count = item.count + parseInt(body.count)
+				}else{
+					user.cart.cartList.push(body)
+				}
+			}
+			else{ //如果没有user.cart，那么用户未添加过购物车，user.cart为空，需要初始化添加
+				user.cart={
+					cartList:[body],
+				}
+			}
+			user.save()
+			.then(newUser=>{
+				console.log(newUser.cart)
+				res.json({
+					code:0,
+					message:'添加购物车成功'
+					// data:result
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.get('/',(req,res)=>{
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		user.getCart()
+		.then(cart=>{
+			res.json({
+				code:0,
+				data:cart
+			})
+		})
+		.catch(e=>{
+			res.json({
+				code:1,
+				errMessage:'获取购物车商品失败'
+			})
+		})
+	})
+})
+router.put('/selectOne',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				let cartItem=user.cart.cartList.find(item=>{
+					return item.productId==body.productId
+				})
+				if(cartItem){
+					cartItem.checked=true
+				}else{
+					res.json({
+						code:1,
+						errMessage:'操作失败'
+					})
+				}
+			}
+			else{ 
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/unselectOne',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				let cartItem=user.cart.cartList.find(item=>{
+
+					return item.productId==body.productId
+				})
+				if(cartItem){
+					cartItem.checked=false
+				}else{
+					res.json({
+						code:1,
+						errMessage:'购物车记录不存在'
+					})
+				}
+			}
+			else{ 
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/selectAll',(req,res)=>{
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				user.cart.cartList.forEach(item=>{
+					 item.checked=true
+				})
+				user.cart.allChecked=true;
+			}
+			else{
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/unselectAll',(req,res)=>{
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				user.cart.cartList.forEach(item=>{
+					 item.checked=false
+				})
+				user.cart.allChecked=false;
+			}
+			else{
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/deleteOne',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				let indexOut=0;
+				user.cart.cartList.find((item,index)=>{
+					if(item.productId==body.productId){
+						indexOut=index
+					}
+					return ;
+				})
+				
+				user.cart.cartList.splice(indexOut,1)
+			}
+			else{ 
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/deleteSelect',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				let newCartList=user.cart.cartList.filter(item=>{
+					return item.checked==false
+				})
+				user.cart.cartList=newCartList
+			}
+			else{ 
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/deleteAll',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			if(user.cart){
+				
+				user.cart.cartList=[];
+			}
+			else{ 
+				res.json({
+					code:1,
+					message:'还没有购物车'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/addCount',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			let cartItem=user.cart.cartList.find(item=>{
+				return item.productId==body.productId
+			})
+			if(cartItem){
+				cartItem.count+=1
+			}else{
+				res.json({
+					code:1,
+					errMessage:'购物车记录不存在'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+router.put('/reduceCount',(req,res)=>{
+	let body=req.body;
+	userModel.findById(req.userInfo._id)
+	.then(user=>{
+		if(user){
+			let cartItem=user.cart.cartList.find(item=>{
+				return item.productId==body.productId
+			})
+			if(cartItem){
+				if(cartItem.count>1){
+					cartItem.count-=1
+				}
+				else{
+					cartItem.count=1
+				}
+				
+			}else{
+				res.json({
+					code:1,
+					errMessage:'购物车记录不存在'
+				})
+			}
+			user.save()//任一数据变化都会触发save函数
+			.then(newUser=>{
+				user.getCart()
+				.then(cart=>{
+					res.json({
+						code:0,
+						data:cart
+					})
+				})
+			})
+		}
+		else{
+			res.json({
+				code:1,
+				errMessage:'未找到相关用户信息'
+			})
+		}
+	})
+})
+
+module.exports=router;

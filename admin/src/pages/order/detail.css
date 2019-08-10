@@ -1,0 +1,83 @@
+li{
+	list-style: none;
+}
+.link{
+	text-decoration: none;
+	font-size: 13px;
+	color: #999;
+	cursor: pointer;
+}
+.link:hover{
+	color: #ff6700;
+}
+.order-detail .panel-body{
+	padding: 0 10px;
+	font-size: 16px;
+}
+.order-detail .panel .order-info li{
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+	font-size: 14px;
+}
+.order-detail .panel .order-info li .btn{
+	width: 80px;
+}
+.panel{
+	margin-top: 20px;
+}
+.panel .panel-header{
+	margin-bottom: 10px;
+}
+.panel .product-info{
+	width: 70%;
+	float: left;
+}
+.panel .product-price{
+	width: 10%;
+	float: left;
+	height: 60px;
+	line-height: 60px;
+}
+.panel .product-count{
+	width: 10%;
+	float: left;
+	height: 60px;
+	line-height: 60px;
+}
+.panel .order-paymentStatusDesc .text{
+	color: #3d49f3c4;
+}
+.panel .product-total-price{
+	width: 10%;
+	float: left;
+	height: 60px;
+	line-height: 60px;
+}
+.content .panel .product-countMenu-text{
+	margin-left: 0px;
+}
+.panel .product-item{
+	margin: 0px;
+	margin-top: -1px;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+
+
+.panel .order-payment .text{
+	color: #f21;
+	font-size: 15px;
+	font-weight: bold;
+}
+.panel .order-user .text{
+	width: 100px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align:middle;
+}
+.panel li.order-detail{
+	float: right;
+}

@@ -1,0 +1,146 @@
+.focus{
+	margin-bottom: 20px;
+}
+.category{
+	float: left;
+	width: 200px;
+	height: 510px;
+	background: #151c2f;
+	margin-right: 10px;
+}
+.category-item{
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 15px;
+	border:1px solid #f21;
+	margin:10px auto;
+	box-sizing: border-box;
+	text-align: center;
+}
+.category-item:hover{
+	background: #999;
+}
+.category-item .link{
+	color: #fff;
+	font-size: 14px;
+	padding: 0;
+}
+.category-item .link:hover{
+	color: #f21;
+}
+.carousel{
+	float: left;
+	width: 1016px;
+	height: 510px;
+	background: url('../../images/loading.gif') no-repeat;
+	position: relative;
+}
+.carousel li{
+	width: 1016px;
+	height: 510px;
+}
+.carousel li img{
+	width: 100%;
+	height: 100%;
+}
+.carousel .btn, .carousel .dot {
+	-webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+	-moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+	-ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+	-o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+	filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+}
+
+.carousel .dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	text-align: center;
+}
+.carousel .dots li {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: 0 4px;
+	text-indent: -999em;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	cursor: pointer;
+	opacity: .4;
+	-webkit-transition: background .5s, opacity .5s;
+	-moz-transition: background .5s, opacity .5s;
+	transition: background .5s, opacity .5s;
+}
+.carousel .dots li.active {
+	background: #fff;
+	opacity: 1;
+}
+.carousel .arrows {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	color: #fff;
+}
+.carousel .arrow {
+	display: inline;
+	padding-left: 10px;
+	cursor: pointer;
+}
+.carousel .arrow{
+	width: 30px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background: rgba(0,0,0,0.6);
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	font-size: 30px;
+	color: #fff;
+	padding: 0;
+}
+.carousel .arrow.prev{
+	left: 0
+}
+.carousel .arrow.next{
+	right: 0
+}
+
+.floor-box{
+	margin-bottom: 20px;
+}
+.floor-title{
+	font-size: 18px;
+	color: #f21;
+	padding-bottom:10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #f21;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.floor-list{
+	
+}
+.floor-item{
+	float: left;
+	width: 238px;
+	margin-right: 10px;
+}
+.floor-item:last-child{
+	margin-right: 0px;
+}
+.floor-item a{
+	text-decoration: none;
+}
+.floor-text{
+	font-size: 15px;
+	color: #000;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.floor-img{
+	width: 238px;
+	height: 240px;
+}

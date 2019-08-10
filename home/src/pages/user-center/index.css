@@ -1,0 +1,26 @@
+.user-page-wrap{
+	margin-bottom: 20px;
+}
+.content{
+	width: 910px;
+	min-height: 600px;
+	background: #fff;
+	float: left;
+}
+.form-item{
+	margin-top: 20px;
+	margin-left: 50px;
+	font-size: 20px;
+}
+.label-item{
+	width: 100px;
+	text-align: right;
+	display: inline-block;
+	color: #999;
+}
+.content-item{
+	width: 400px;
+	padding-left: 20px;
+	display: inline-block;
+
+}

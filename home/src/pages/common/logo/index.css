@@ -1,0 +1,10 @@
+.logo-box{
+	background-color: #fff;
+}
+.logo-text{
+	text-decoration: none;
+	color: red;
+	font-size: 30px;
+	display: inline-block;
+	font-weight: bold;
+}

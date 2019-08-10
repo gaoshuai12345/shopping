@@ -1,0 +1,32 @@
+.search-box{
+	height: 80px;
+	background: #fff;
+	margin-bottom: 20px;
+}
+.logo-text{
+	text-decoration: none;
+	color: red;
+	font-size: 40px;
+	display: inline-block;
+	font-weight: bold;
+	float: left;
+	line-height: 80px;
+	margin-right:67px;
+}
+.search-input{
+	float: left;
+	outline: none;
+	border:2px solid #f21;
+	width: 400px;
+	height: 40px;
+	margin-top: 18px;
+	padding-left: 10px;
+}
+.btn-search{
+	float: left;
+	margin-top: 18px;
+	height: 44px;
+	width: 80px;
+	text-align:center;
+	line-height: 44px;
+}
